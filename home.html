@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- css -->
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
 
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/0fce3c0945.js" crossorigin="anonymous"></script>
@@ -20,18 +20,28 @@
 <body>
     <header>
         <div class="header">
-            <div class="hdrTopRedes">
-                <a href="https://www.instagram.com/_crimpo_/"><i class="fa-brands fa-instagram icon icon--instagrm"></i></a>
-                <a href="https://www.facebook.com/crimpocom"><i class="fa-brands fa-facebook icon icon--facebook"></i></a>
+            <div class="hdrTop">
+                <div class="hdrTopCart">
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <div class="hdrTopRedes">
+                    <a href="https://www.instagram.com/_crimpo_/"><i class="fa-brands fa-instagram icon icon--instagrm"></i></a>
+                    <a href="https://www.facebook.com/crimpocom"><i class="fa-brands fa-facebook icon icon--facebook"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
             </div>
 
-            <div class="hdrBotLogo">
-                <div class="hdrLogo">
-                    <a href="./home.html"><img src="./img/Logo.PNG" alt="LOGO" class="logo"></a>
+            <div class="hdrBot">
+                <div class="burger">
+                    <a href="javascript:void(0);" class="burger-menu" onclick="burger_menu()"><i class="fas fa-bars"></i></a>
                 </div>
-
-                <div class="encabezado">
-                    <p>compras y ventas al por menor </p>
+                <div class="hdrBotLogo">
+                    <div class="hdrLogo">
+                        <a href="./home.html"><img src="./img/Logo.PNG" alt="LOGO" class="logo"></a>
+                    </div>
+                    <div class="encabezado">
+                        <p>compras y ventas al por menor </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,9 +50,19 @@
     <main>
         <div class="main-catalogo">
             <div class="catalogo">
-                Catalogo:
-                <button class="accordion">CELULARES</button>
-                <div class="panel"></div>
+                <div class="catalogo-producto">
+                    <img src="./img/Catalogo iphones.png" alt="LOGO" class="catalogo-logo">
+                    <p class="catalogo-titulo">IPHONES</p>
+                </div>
+
+
+
+
+                <div class="catalogo-producto">
+                    <img src="./img/Catalogo iphones.png" alt="LOGO" class="catalogo-logo">
+                    <p class="catalogo-titulo">IPHONES</p>
+                </div>
+
 
 
 

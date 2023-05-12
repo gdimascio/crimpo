@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {{> head}}
+
+<body>
+    {{> header}}
+    
+    <main>
+        <div class="main-catalogo">
+            <div class="catalogo">
+                <div class="catalogo-producto">
+                    <p class="catalogo-titulo">IPHONES</p>
+
+                    {{#each results}}
+                    <div class="catalogo-item">
+                        <div class="catalogo-item-izq">
+                            <img src="./img/Imagen Producto.png" alt="IMAGEN" class="item-logo">
+                            <a href="#" class="shopping"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                        <div class="catalogo-item-der">
+                            <div>
+                                <p class="item-titulo">{{modelo}}</p>
+                                <p class="item-size">{{tamano}} GB</p>
+                                <p class="item-texto">{{descripcion}}</p>
+                            </div>
+                            <div>
+                                <p class="item-precio">U$D {{precio}}</p>
+                            </div>
+                        </div>
+                    </div> 
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

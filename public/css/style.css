@@ -4,6 +4,7 @@ _PALETA_{
     color: #BDE8F3;
     color: #1C538E;
     color: #07182B;
+    color: #F03535;
     
     color: #d9d9d933;
 }
@@ -14,7 +15,7 @@ _PALETA_{
     scroll-behavior: smooth;
     text-decoration: none;
     list-style: none;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 * a{
     scroll-behavior: smooth;
@@ -166,6 +167,77 @@ main{
     align-items: center;
     gap: 20px;
 }
+.catalogo > p{
+    font-size: 30px;
+}
+.catalogo-producto > form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.admin-categorias{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+.admin-categorias > select{
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    /* border-block-color: #d9d9d9; */
+}
+.admin-botones{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.admin-botones > button, .admin-botones > input  {
+    background-color: #07182B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 3px 15px;
+    font-weight: 700;
+}
+/* .cargar{
+    display: none;
+} */
+.admin-cargar{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    gap: 10px;
+}
+.admin-cargar > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.admin-cargar > * input{
+    border-block-color: #d9d9d9;
+    border-radius: 5px;
+    /* text-align: center; */
+    min-width: 40vw;
+    width: 200px;
+    padding-left: 5px;
+}
+.admin-cargar > * label{
+    min-width: 65px;
+}
+.backArrow{
+    position: fixed;
+    /* left: 10vw;
+    top: 185px; */
+}
+.backArrow > * i{
+    color: #07182B;
+    font-size: 30px;
+}
 .catalogo-logo{
     max-width: 80%;
 }
@@ -234,6 +306,34 @@ main{
 
 
 
+.whatsapp-button{
+    display: inline-block;
+    width: 50px;
+    height: 80px;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 50px;
+    right: 15px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.2;
+    z-index: 100;
+    animation: wiggle ease;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    animation-delay: 4s;
+}
+@keyframes wiggle {
+    0% { transform:translate(0,0) }
+    1.78571% { transform:translate(5px,0) }
+    3.57143% { transform:translate(0,0) }
+    5.35714% { transform:translate(5px,0) }
+    7.14286% { transform:translate(0,0) }
+    8.92857% { transform:translate(5px,0) }
+    10.71429% { transform:translate(0,0) }
+    100% { transform:translate(0,0) }
+}
 
 
 

@@ -1,0 +1,31 @@
+
+<form action="/cargarProducto" method="post">
+    {{!-- Cargando producto en {{categorias}} --}}
+    <div class="admin-cargar">
+        <div class="backArrow">
+            <a href="/admin"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+        Ingrese nuevo producto:
+        <div>
+            <label for="modelo">Modelo:</label>
+            <input type="text" name="modelo" required>
+        </div>
+        <div>
+            <label for="tamano">Tamaño:</label>
+            <input type="number" name="tamano" required>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="float" name="precio" required>
+        </div>
+        <div>
+            <label for="imagen">Imagen:</label>
+            <input type="file" name="imagen" {{!--required--}}> 
+        </div>
+    </div>
+
+    <div class="botones admin-botones">
+        <button type="submit">CARGAR</button>
+    </div>
+</form>
+

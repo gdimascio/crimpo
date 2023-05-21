@@ -1,0 +1,18 @@
+
+<form action="/cargar" method="post">
+    <div class="admin-categorias">
+        <label for="categorias">Categorias:</label>
+        <select name="categorias" required>
+            <option value="">-- Elegí una categoria --</option>
+            {{#each results}}
+            <option>{{nombre}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="botones admin-botones">
+        {{!-- <input type="submit" value="EDITAR"> --}}
+        {{!-- <input type="submit" value="CARGAR"> --}}
+        <button type="submit">EDITAR</button>
+        <button type="submit">CARGAR</button>
+    </div>
+</form>

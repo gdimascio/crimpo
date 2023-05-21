@@ -9,14 +9,15 @@
     <main>
         <div class="main-catalogo">
             <div class="catalogo">
-                {{#each results}}
+                <p>Bienvenido, admin!</p>
                 <div class="catalogo-producto">
-                    <a href="./{{nombre}}.html">
-                        <img src="./img/Imagen Producto.png" alt="LOGO" class="catalogo-logo">
-                        <p class="catalogo-titulo">{{nombre}}</p>
-                    </a>
+                    {{> catalogo_select}}
                 </div>
-                {{/each}}
+
+                <div class="catalogo-producto cargar" id="cargar">
+                    aca va el editar.hbs
+                </div>
+
             </div>
         </div>
     </main>

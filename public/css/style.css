@@ -28,6 +28,18 @@ body{
     font-size: 14px;
 }
 
+.fa-solid, .fa-brands{
+    color: #1C538E;
+}
+.fa-cart-shopping{
+    color: #FFFFFF;
+}
+.fa-trash-can{
+    color: #F03535;
+}
+.fa-pen-to-square{
+    color: #07182B;
+}
 
 /*_______________________________________________________________*/
 .header{
@@ -41,12 +53,6 @@ body{
     position: fixed;
     top: 0;
     z-index: 1;
-}
-.fa-solid, .fa-brands{
-    color: #1C538E;
-}
-.fa-cart-shopping{
-    color: #FFFFFF;
 }
 .hdrTopCart{
     margin-right: 20px;
@@ -205,11 +211,13 @@ main{
 /* .cargar{
     display: none;
 } */
-.admin-cargar{
+.admin-cargar, .admin-editar{
     display: flex;
     flex-direction: column;
     /* align-items: flex-start; */
-    gap: 10px;
+    gap: 15px;
+    min-width: 90%;
+
 }
 .admin-cargar > div{
     width: 100%;
@@ -236,7 +244,7 @@ main{
 }
 .backArrow > * i{
     color: #07182B;
-    font-size: 30px;
+    font-size: 25px;
 }
 .catalogo-logo{
     max-width: 80%;
@@ -302,6 +310,39 @@ main{
     font-size: 15px;
     padding-bottom: 7px;
     font-weight: 700;
+}
+.edit-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.edit-btns > button{
+    background-color: transparent;
+    border: none;
+}
+.edit-btns > * i{
+    font-size: 15px;
+}
+.edit-catalogo-item{
+    display: flex;
+    justify-content: space-around;
+}
+.edit-catalogo-item > table{
+    text-align: left;
+    border-spacing: 15px 5px;
+}
+#delete_form{
+    display: none;
+    position: absolute;
+    background-color: #d9d9d9;
+    color: black;
+    /* max-height: 200px; */
+    max-width: 80vw;
+    padding: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 

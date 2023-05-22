@@ -1,5 +1,5 @@
 
-<form action="/cargar" method="post">
+<form method="post" id="frm_load_edit">
     <div class="admin-categorias">
         <label for="categorias">Categorias:</label>
         <select name="categorias" required>
@@ -10,9 +10,20 @@
         </select>
     </div>
     <div class="botones admin-botones">
-        {{!-- <input type="submit" value="EDITAR"> --}}
-        {{!-- <input type="submit" value="CARGAR"> --}}
-        <button type="submit">EDITAR</button>
-        <button type="submit">CARGAR</button>
+        <button id="btn_editar">EDITAR</button>
+        <button id="btn_cargar">CARGAR</button>
     </div>
 </form>
+
+<script>
+    var formAction = document.querySelector("form#frm_load_edit");
+    var loadButton = document.querySelector("button#btn_cargar");
+    loadButton.addEventListener("click", function(){
+        formAction.setAttribute("action", "/cargar");
+    })
+
+    var editButton = document.querySelector("button#btn_editar");
+    editButton.addEventListener("click", function(){
+        formAction.setAttribute("action", "/editar");
+    })
+</script>

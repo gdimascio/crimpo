@@ -40,7 +40,7 @@ router.get("/admin", (req, res) => {
     })
 });
 
-// SELECT PRODUCTO
+// SELECT CATEGORIA
 router.post("/cargar", async(req, res) => {
     const categoria = req.body.categorias;
     // console.log (categoria);
@@ -52,6 +52,18 @@ router.post("/cargar", async(req, res) => {
     });
 });
 
+// SELECT PRODUCTO
+router.post("/editar", async(req, res) => {
+    const categoria = req.body.categorias;
+    // console.log (categoria);
+
+    let sql = "SELECT * FROM " + categoria;
+    let query = conn.query(sql, (err, results) => {
+        if (err) throw err;
+        res.render("../views/admin_editar.hbs", {results:results})
+    });
+});
+
 // INSERTAR PRODUCTO
 router.post("/cargarProducto", (req, res) => {
     let data = { modelo: req.body.modelo, tamano: req.body.tamano, precio: req.body.precio };
@@ -60,6 +72,17 @@ router.post("/cargarProducto", (req, res) => {
         if (err) throw err;
         res.redirect("/admin");
     });
+});
+
+// BORRAR PRODUCTO
+router.post('/delete',(req, res) => {
+    let sql = "DELETE FROM iphones WHERE id="+req.body.id+"";
+    let query = conn.query(sql, (err, results) => {
+    if(err) throw err;
+        res.redirect('/admin');
+    });
+    // console.log(sql);
+    // res.redirect('/admin');
 });
 
 

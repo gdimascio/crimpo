@@ -4,7 +4,8 @@ const app = express();
 const port = 3000;
 
 const hbs = require("hbs");
-const router = require ('./router/router')
+const router = require ('./router/Router')
+const adminRouter = require("./router/routerAdmin");
 
 // HBS
 app.set("view engine", "hbs");
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended: false}));
 
 
 app.use("/", router);
+// app.use("/admin", adminRouter);
 
 
 

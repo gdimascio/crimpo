@@ -12,7 +12,7 @@
                 <div class="catalogo-producto">
                     <p class="catalogo-titulo">IPHONES</p>
 
-                    {{#each results}}
+                    {{#each producto}}
                     <div class="catalogo-item">
                         <div class="catalogo-item-izq">
                             <img src="./img/Imagen Producto.png" alt="IMAGEN" class="item-logo">
@@ -20,12 +20,12 @@
                         </div>
                         <div class="catalogo-item-der">
                             <div>
-                                <p class="item-titulo">{{modelo}}</p>
-                                <p class="item-size">{{tamano}} GB</p>
-                                <p class="item-texto">{{descripcion}}</p>
+                                <p class="item-titulo">{{this.modelo}}</p>
+                                <p class="item-size">{{this.tamano}} GB</p>
+                                <p class="item-texto">{{this.descripcion}}</p>
                             </div>
                             <div>
-                                <p class="item-precio">U$D {{precio}}</p>
+                                <p class="item-precio">U$D {{this.precio}}</p>
                             </div>
                         </div>
                     </div> 

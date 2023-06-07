@@ -4,8 +4,8 @@
         <label for="categorias">Categorias:</label>
         <select name="categorias" required>
             <option value="">-- Elegí una categoria --</option>
-            {{#each results}}
-            <option>{{nombre}}</option>
+            {{#each catalogo}}
+                <option>{{this.nombre}}</option>
             {{/each}}
         </select>
     </div>

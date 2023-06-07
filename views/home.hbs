@@ -9,11 +9,11 @@
     <main>
         <div class="main-catalogo">
             <div class="catalogo">
-                {{#each results}}
+                {{#each catalogo}}
                 <div class="catalogo-producto">
-                    <a href="./{{nombre}}.html">
+                    <a href="/{{this.nombre}}">
                         <img src="./img/Imagen Producto.png" alt="LOGO" class="catalogo-logo">
-                        <p class="catalogo-titulo">{{nombre}}</p>
+                        <p class="catalogo-titulo">{{this.nombre}}</p>
                     </a>
                 </div>
                 {{/each}}

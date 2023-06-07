@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 const hbs = require("hbs");
-const router = require ('./router/Router')
+const router = require ('./router/router')
 const adminRouter = require("./router/routerAdmin");
 
 // HBS

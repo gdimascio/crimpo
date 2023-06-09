@@ -3,18 +3,18 @@
     <div class="backArrow">
         <a href="/admin"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
-    Lista de producto:
-    {{#each results}}
+    Lista de producto: {{productoNombre}}
+    {{#each producto}}
     <div class="catalogo-item edit-catalogo-item">
         <table>
-            <tr><th>Modelo:</th><td>{{modelo}}</td></tr>
-            <tr><th>Tamaño:</th><td>{{tamano}} GB</td></tr>
-            <tr><th>Precio:</th><td>U$D {{precio}}</td></tr>
+            <tr><th>Modelo:</th><td>{{this.modelo}}</td></tr>
+            <tr><th>Tamaño:</th><td>{{this.tamano}} GB</td></tr>
+            <tr><th>Precio:</th><td>U$D {{this.precio}}</td></tr>
             <tr><th>Imagen:</th><td> *** </td></tr>
             
         </table>
         <div class="edit-btns">
-            <button id="btn_edit" data-modelo="{{modelo}}" data-tamano="{{tamano}}" data-precio="{{precio}}"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button id="btn_edit" data-id="{{id}}" data-modelo="{{modelo}}" data-tamano="{{tamano}}" data-precio="{{precio}}"><i class="fa-solid fa-pen-to-square"></i></button>
             <button id="btn_delete" data-id="{{id}}"><i class="fa-solid fa-trash-can"></i></button>
         </div>
     </div> 
@@ -22,8 +22,8 @@
 </div>
 
 <script>
-    function displayForm(){
-        var confirmForm = document.querySelector("#delete_form");
+    function displayForm(form){
+        var confirmForm = document.querySelector(form);
         if (confirmForm.style.display === "flex") {
             confirmForm.style.display = "none";
         } else {
@@ -34,12 +34,39 @@
     var deleteButton = document.querySelectorAll("button#btn_delete");
     deleteButton.forEach(function(item,idx){
         item.addEventListener('click', function() {
+            dataCat = "{{productoNombre}}";
             dataId = item.dataset.id;
-            {{!-- console.log(dataId); --}}
-            displayForm();
+            displayForm("#delete_form");
 
-            var inputClass = document.querySelector(".dlte_id");
-            inputClass.setAttribute("value", dataId);
+            var inputId = document.querySelector(".dlte_id");
+            inputId.setAttribute("value", dataId);
+            var inputCat = document.querySelector(".dlte_cat");
+            inputCat.setAttribute("value", dataCat);
+        });
+    });
+
+
+    var editButton = document.querySelectorAll("button#btn_edit");
+    editButton.forEach(function(item,idx){
+        item.addEventListener('click', function() {
+            dataCat = "{{productoNombre}}";
+            dataId = item.dataset.id;
+            dataModelo = item.dataset.modelo;
+            dataTamano = item.dataset.tamano;
+            dataPrecio = item.dataset.precio;
+            displayForm("#edit_form");
+
+            var inputId = document.querySelector(".edit_id");
+            var inputModelo = document.querySelector(".edit_modelo");
+            var inputTamano = document.querySelector(".edit_tamano");
+            var inputPrecio = document.querySelector(".edit_precio");
+            var inputCat = document.querySelector(".edit_cat");
+
+            inputId.setAttribute("value", dataId);
+            inputModelo.setAttribute("value", dataModelo);
+            inputTamano.setAttribute("value", dataTamano);
+            inputPrecio.setAttribute("value", dataPrecio);
+            inputCat.setAttribute("value", dataCat);
         });
     });
 
@@ -49,9 +76,23 @@
 <form action="/delete" method="post" id="delete_form">
     Borrar articulo?
     <input type="hidden" name="id" class="dlte_id" required>
+    <input type="hidden" name="cat" class="dlte_cat" required>
 
-    <button type="button" onclick="displayForm()">CANCELAR</button>
+    <button type="button" onclick="displayForm('#delete_form')">CANCELAR</button>
     <button type="submit">ELIMINAR</button>
+</form>
+
+<form action="/edit" method="post" id="edit_form">
+    <input type="hidden" name="id" class="edit_id" required>
+    <input type="hidden" name="cat" class="edit_cat" required>
+
+    <input type="text" name="modelo" class="edit_modelo">
+    <input type="number" name="tamano" class="edit_tamano">
+    <input type="float" name="precio" class="edit_precio">
+    {{!-- <input type="file" name="imagen">  --}}
+
+    <button type="button" onclick="displayForm('#edit_form')">CANCELAR</button>
+    <button type="submit">ACTUALIZAR</button>
 </form>
 
 

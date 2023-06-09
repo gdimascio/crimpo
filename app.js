@@ -5,7 +5,6 @@ const port = 3000;
 
 const hbs = require("hbs");
 const router = require ('./router/router')
-const adminRouter = require("./router/adminRouter");
 
 // HBS
 app.set("view engine", "hbs");

@@ -5,6 +5,7 @@ const port = 3000;
 
 const hbs = require("hbs");
 const router = require ('./router/router')
+const routerAdmin = require ('./router/routerAdmin')
 
 // HBS
 app.set("view engine", "hbs");
@@ -14,9 +15,8 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use("/", express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: false}));
 
-
+app.use("/admin", routerAdmin);
 app.use("/", router);
-// app.use("/admin", adminRouter);
 
 
 

@@ -4,6 +4,7 @@ const router = express.Router();
 const controller = require("../controllers/controllerAdmin");
 
 router.get("/", controller.listAdmin);
+// router.get("/adminlogin", controller.listAdmin);
 
 router.post("/cargar", controller.cargar);
 router.post("/cargarProducto", controller.cargarProducto);

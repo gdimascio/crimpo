@@ -6,6 +6,10 @@ const port = 3000;
 const hbs = require("hbs");
 const router = require ('./router/router')
 const routerAdmin = require ('./router/routerAdmin')
+const routerSessions = require("./router/routerSessions");
+
+const configureSession = require ("./router/sessions");
+configureSession(app);
 
 // HBS
 app.set("view engine", "hbs");
@@ -15,7 +19,10 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use("/", express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: false}));
 
+
 app.use("/admin", routerAdmin);
+// app.use("/routerAdmin", routerAdmin);
+// app.use("/admin", routerSessions);
 app.use("/", router);
 
 

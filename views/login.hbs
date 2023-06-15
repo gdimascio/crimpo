@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {{> head}}
+
+<body>
+    {{> header}}
+    
+    <main>
+        <div class="main-catalogo">
+            <div class="catalogo">
+                LOGIN
+
+
+                <form action="/admin/login" method="post">
+                    <div class="admin-cargar">
+                        <div>
+                            <label for="username">Usuario: </label>
+                            <input type="text" name="username" required>
+                        </div>
+                        <div>
+                            <label for="password">Password: </label>
+                            <input type="password" name="password" required>
+                        </div>
+                        <div class="botones admin-botones">
+                            <input type="submit" value="Login">
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+
+    </main>
+    {{> whatsapp}}
+</body>
+</html>

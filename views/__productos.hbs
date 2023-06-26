@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>Productos</title>
+</head>
+<body>
+    <h1> Lista Productos </h1>
+    <div class="table-div">
+        <table>
+            <thead class="table-head">
+                <th>Producto id</th>
+                <th>Producto nombre</th>
+                <th>Precio</th>
+                <th>Accion</th>
+            </thead>
+
+            <tbody class="table-body">
+                {{#each results}}
+                <tr>
+                <td>{{producto_id}}</td>
+                <td>{{producto_nombre}}</td>
+                <td>{{producto_precio}}</td>
+                <td class="accion">
+                    <a href=""> Editar </a>
+                    <a href="" data-id="{{ producto_id}}"> Borrar </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+            
+        </table>
+    </div>
+
+<br><br><br>
+
+    <button class="btn">Añadir</button>
+    <form action="/save" method="post">
+        <input type="text" name="producto_nombre" placeholder="Nombre Producto" required>
+        <input type="text" name="producto_precio" placeholder="Precio Producto" required>
+        
+        <button type="reset">Borrar</button>
+        <button type="submit">Guardar</button>
+    </form>
+
+
+</body>
+</html>

@@ -5,7 +5,7 @@ const db = require ("../firebase/firebase");
 
 // CARGA DE COLECCIONES
 const catalogoCollection = db.collection("catalogo");
-const iphoneCollection = db.collection("iphone");
+const carritoCollection = db.collection("carrito");
 function getCollection(producto){return db.collection(producto)}
 
 const controller = {
@@ -28,8 +28,25 @@ const controller = {
                 id: doc.id, 
                 ...doc.data()
             }))
-            res.render(productoNombre, {producto})
+            res.render("productos", {producto, productoNombre})
+        },
+
+        cartAdd: (req, res) => {
+            const productoModelo = req.params.modelo;
+            const productoId = req.body.id;
+            console.log(productoModelo)
+            res.redirect("carrito")
+        },
+        showCart: async(req, res) => {
+            const carritoSnapshot = await carritoCollection.get();
+            const carrito = carritoSnapshot.docs.map(doc => ({
+                id: doc.id, 
+                ...doc.data()
+            }))
+            // console.log(carrito)
+            res.render("carrito", {carrito})
         }
+
 
 }
 

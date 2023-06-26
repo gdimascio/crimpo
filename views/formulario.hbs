@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {{> head}}
+
+<body>
+    {{> header}}
+    
+    <main>
+        <div class="main-catalogo">
+            <div class="catalogo">
+                <div class="catalogo-producto">
+                    <form action="/enviar/send" method="post">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input type="text" name="nombre" id="nombre" required>
+                        
+                        <label for="email">Mail</label>
+                        <input type="email" name="email" id="email" required>
+
+                        <label for="telefono">Telefono</label>
+                        <input type="number" name="telefono" id="telefono" required>
+
+                        <button type="submit" class="shopping">FINALIZAR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> whatsapp}}
+</body>
+</html>

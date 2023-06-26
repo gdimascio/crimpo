@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {{> head}}
+
+<body>
+    {{> header}}
+    
+    <main>
+        <div class="main-catalogo">
+            <div class="catalogo">
+                <div class="catalogo-producto">
+                    <p class="catalogo-titulo">CARRITO</p>
+                    
+                    <div class="table-div">
+                        <table>
+                            <thead class="table-head">
+                                <th>Articulo</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                            </thead>
+
+                            <tbody class="table-body">
+                                {{#each carrito}}
+                                <tr>
+                                    <td style="text-transform:uppercase;">{{modelo_producto}}<br>{{tamano_producto}} GB</td>
+                                    <td>{{cantidad}}</td>
+                                    <td>U$D {{precio_producto}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        <a href="/enviar" class="shopping">ENVIAR</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> whatsapp}}
+</body>
+</html>

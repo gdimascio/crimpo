@@ -7,6 +7,7 @@ const hbs = require("hbs");
 const router = require ('./router/router')
 const routerAdmin = require ('./router/routerAdmin')
 const routerSessions = require("./router/routerSessions");
+const routerMail = require("./router/routerMail");
 
 const configureSession = require ("./router/sessions");
 configureSession(app);
@@ -23,6 +24,7 @@ app.use(express.urlencoded({extended: false}));
 app.use("/admin", routerAdmin);
 // app.use("/routerAdmin", routerAdmin);
 // app.use("/admin", routerSessions);
+app.use("/enviar", routerMail);
 app.use("/", router);
 
 

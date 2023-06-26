@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <title>Productos</title>
-</head>
+
+    {{> head}}
+
 <body>
-    <h1> Lista Productos </h1>
-    <div class="table-div">
-        <table>
-            <thead class="table-head">
-                <th>Producto id</th>
-                <th>Producto nombre</th>
-                <th>Precio</th>
-                <th>Accion</th>
-            </thead>
+    {{> header}}
+    
+    <main>
+        <div class="main-catalogo">
+            <div class="catalogo">
+                <div class="catalogo-producto">
+                    <p class="catalogo-titulo">{{productoNombre}}</p>
 
-            <tbody class="table-body">
-                {{#each results}}
-                <tr>
-                <td>{{producto_id}}</td>
-                <td>{{producto_nombre}}</td>
-                <td>{{producto_precio}}</td>
-                <td class="accion">
-                    <a href=""> Editar </a>
-                    <a href="" data-id="{{ producto_id}}"> Borrar </a>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-            
-        </table>
-    </div>
-
-<br><br><br>
-
-    <button class="btn">Añadir</button>
-    <form action="/save" method="post">
-        <input type="text" name="producto_nombre" placeholder="Nombre Producto" required>
-        <input type="text" name="producto_precio" placeholder="Precio Producto" required>
-        
-        <button type="reset">Borrar</button>
-        <button type="submit">Guardar</button>
-    </form>
+                    {{#each producto}}
+                    <div class="catalogo-item">
+                        <div class="catalogo-item-izq">
+                            <img src="./img/Imagen Producto.png" alt="IMAGEN" class="item-logo">
+                            <button class="shopping" id="btn_cart" data-id="{{id}}" data-modelo="{{modelo}}" data-tamano="{{tamano}}" data-precio="{{precio}}"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="catalogo-item-der">
+                            <div>
+                                <p class="item-titulo">{{this.modelo}}</p>
+                                <p class="item-size">{{this.tamano}} GB</p>
+                                <p class="item-texto">{{this.descripcion}}</p>
+                            </div>
+                            <div>
+                                <p class="item-precio">U$D {{this.precio}}</p>
+                            </div>
+                        </div>
+                    </div> 
+                    {{/each}}
+                </div>
 
 
+                <script>
+                    var cartAddButton = document.querySelectorAll("button#btn_cart");
+                    cartAddButton.forEach(function(item,idx){
+                        item.addEventListener('click', function() {
+                            dataCat = "{{productoNombre}}";
+                            dataId = item.dataset.id;
+                            dataModelo = item.dataset.modelo;
+                            dataTamano = item.dataset.tamano;
+                            dataPrecio = item.dataset.precio;
+
+                        });
+                    });
+                </script>
+
+
+            </div>
+        </div>
+    </main>
+    {{> whatsapp}}
 </body>
 </html>

@@ -1,5 +1,8 @@
 
+
 const express = require("express");
+const serverless = require("serverless-http");
+
 const app = express();
 const port = 3000;
 
@@ -28,9 +31,11 @@ app.use("/enviar", routerMail);
 app.use("/", router);
 
 
-
+module.exports = app;
+module.exports.handler = serverless(app);
 
 app.get("*", function(req, res){res.send("ERROR 404")})
 app.listen(port , () => {
     console.log("usando el puerto http://localhost:" + port);
 })
+

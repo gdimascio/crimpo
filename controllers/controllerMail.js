@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 
 const carritoCollection = db.collection("carrito");
 
+// funcion para borrado de carrito al enviar mail
 async function dltCarrito() {
     try{
     const carritoSnapshot = await carritoCollection.get();
@@ -19,7 +20,6 @@ async function dltCarrito() {
     console.error('Error al eliminar documentos:', error);
     }
 }
-
 
 exports.carritoEnviar = async(req, res) => {
     res.render("formulario")
@@ -40,7 +40,7 @@ exports.carritoSend = async(req, res) => {
         Cantidad: ${item.cantidad} \n`
         ).join('\n');
 
-    // Configurar transportador SMTP
+    // Configurar transportador SMTP (ethereal email)
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,

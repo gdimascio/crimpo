@@ -4,6 +4,22 @@ const nodemailer = require('nodemailer');
 
 const carritoCollection = db.collection("carrito");
 
+async function dltCarrito() {
+    try{
+    const carritoSnapshot = await carritoCollection.get();
+    const batch = db.batch();
+
+    carritoSnapshot.forEach((doc) => {
+        batch.delete(doc.ref);
+    });
+    await batch.commit();
+
+    console.log('Todos los documentos en la colección "Carrito" han sido eliminados con éxito.');
+    } catch (error) {
+    console.error('Error al eliminar documentos:', error);
+    }
+}
+
 
 exports.carritoEnviar = async(req, res) => {
     res.render("formulario")
@@ -29,8 +45,8 @@ exports.carritoSend = async(req, res) => {
         host: 'smtp.ethereal.email',
         port: 587,
         auth: {
-            user: 'taya0@ethereal.email',
-            pass: 'JN8K1Z4wWcAXmvQcWK'
+            user: 'richard.zieme@ethereal.email',
+            pass: '9DgrtxguSXmAztaGuM'
             },
         tls: {
             rejectUnauthorized: false
@@ -51,6 +67,11 @@ exports.carritoSend = async(req, res) => {
         ${carritoString}
         `
     };
+
+    // Borrar el carrito luego de enviar el mail
+    /*
+    dltCarrito();
+    */
 
     try{
         // Enviar correo

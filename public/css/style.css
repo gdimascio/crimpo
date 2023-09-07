@@ -21,6 +21,10 @@ _PALETA_{
     scroll-behavior: smooth;
     text-decoration: none;
 }
+* button{
+    cursor: pointer;
+}
+
 body{
     font-family: 'Maven Pro', sans-serif;
     font-weight: 400;

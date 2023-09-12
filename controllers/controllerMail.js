@@ -42,15 +42,27 @@ exports.carritoSend = async(req, res) => {
 
     // Configurar transportador SMTP (ethereal email)
     const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
+        host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            user: 'richard.zieme@ethereal.email',
-            pass: '9DgrtxguSXmAztaGuM'
+            user: 'guido.dimascio@gmail.com',
+            pass: 'upzr zjha owsz bzkf'
             },
         tls: {
             rejectUnauthorized: false
         }
+
+
+
+        // host: 'smtp.ethereal.email',
+        // port: 587,
+        // auth: {
+        //     user: 'braeden38@ethereal.email',
+        //     pass: 'eeDKmN1pQBUAeJ93jF'
+        //     },
+        // tls: {
+        //     rejectUnauthorized: false
+        // }
     });
 
     // Configurar correo electronico

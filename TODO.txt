@@ -1,4 +1,4 @@
 
 - CRUD para agregar Productos al Carrito
-- implementar envio de mail a gmail (bug)
+- envio de mail: cambiar mail de host
 - cargar a host (Netlify)

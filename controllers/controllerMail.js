@@ -46,11 +46,11 @@ exports.carritoSend = async(req, res) => {
         host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            user: process.env.USERNAME,
-            pass: process.env.PASSWORD
-            // user: "guido.dimascio@gmail.com",
-            // pass: "zphe otes enpq wzxb"
-            },
+            // user: process.env.USERNAME,
+            // pass: process.env.PASSWORD
+            user: process.env.USERNAME_LOCAL,
+            pass: process.env.PASSWORD_LOCAL,
+        },
         tls: {
             rejectUnauthorized: false
         }

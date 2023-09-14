@@ -48,6 +48,8 @@ exports.carritoSend = async(req, res) => {
         auth: {
             user: process.env.USERNAME,
             pass: process.env.PASSWORD
+            // user: "guido.dimascio@gmail.com",
+            // pass: "zphe otes enpq wzxb"
             },
         tls: {
             rejectUnauthorized: false

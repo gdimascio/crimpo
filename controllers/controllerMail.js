@@ -1,3 +1,4 @@
+require("dotenv").config();
 
 const db = require ("../firebase/firebase");
 const nodemailer = require('nodemailer');
@@ -45,8 +46,8 @@ exports.carritoSend = async(req, res) => {
         host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            user: 'guido.dimascio@gmail.com',
-            pass: 'upzr zjha owsz bzkf'
+            user: process.env.USERNAME,
+            pass: process.env.PASSWORD
             },
         tls: {
             rejectUnauthorized: false

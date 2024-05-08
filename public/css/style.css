@@ -63,9 +63,13 @@ body{
     position: fixed;
     right: 0;
 }
+.hdrTopRedes{
+    display: flex;
+    gap: 2vw;
+}
 .burger{
     position: fixed;
-    left: 0;
+    /* left: 0; */
     /* top: 85px; */
     margin-left: 20px;
 }
@@ -79,6 +83,9 @@ body{
     text-align: center;
     font-size: 18px;
     line-height: 1;
+}
+.hdrBot{
+    width: 100%;
 }
 .hdrBotLogo{
     display: flex;
@@ -374,7 +381,7 @@ main{
     padding: 10px 0;
     position: fixed;
     bottom: 50px;
-    right: 15px;
+    right: 20px;
     color: #ffffff;
     text-align: center;
     text-decoration: none;

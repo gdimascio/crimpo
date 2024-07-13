@@ -20,7 +20,7 @@ app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 
 // MIDDLEWARE
-app.use("/", express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: false}));
 
 
@@ -31,7 +31,7 @@ app.use("/enviar", routerMail);
 app.use("/", router);
 
 
-
+const port = process.env.PORT || 3001;
 app.get("*", function(req, res){res.send("ERROR 404")})
 app.listen(port , () => {
     console.log("usando el puerto http://localhost:" + port);

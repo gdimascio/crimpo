@@ -1,8 +1,8 @@
 
 - CRUD para agregar Productos al Carrito
 - envio de mail: cambiar mail de host
-- cargar a host (Netlify)
+
 
 
 COMMIT:
-se adapta codigo a vercel (variables de entorno, tryCatch)
+

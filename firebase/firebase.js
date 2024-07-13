@@ -3,7 +3,7 @@ require("dotenv").config();
 const admin = require ("firebase-admin");
 
 try {
-    const serviceAccountSecret = require(process.env.fbTOKEN);
+    const serviceAccountSecret = JSON.parse(process.env.fbTOKEN);
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccountSecret)
     });

@@ -4,7 +4,6 @@ require("dotenv").config();
 const express = require("express");
 
 const app = express();
-const port = process.env.PORT || 3001;
 
 const hbs = require("hbs");
 const router = require ('./router/router')
@@ -16,6 +15,7 @@ const configureSession = require ("./router/sessions");
 configureSession(app);
 
 // HBS
+app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 

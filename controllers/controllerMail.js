@@ -41,31 +41,32 @@ exports.carritoSend = async(req, res) => {
         Cantidad: ${item.cantidad} \n`
         ).join('\n');
 
+    let username;
+    let password;
+    try {
+        if (!process.env.USERNAME || !process.env.PASSWORD) {
+            throw new Error("No se encontraron variables en .env");
+        }
+        username = process.env.USERNAME;
+        password = process.env.PASSWORD
+    } catch (error) {
+        console.log("No se encontraron variables en.env");
+        console.log("Usando variables locales");
+        username = process.env.USERNAME_LOCAL;
+        password = process.env.PASSWORD_LOCAL
+    }
+
     // Configurar transportador SMTP (ethereal email)
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            // user: process.env.USERNAME,
-            // pass: process.env.PASSWORD
-            user: process.env.USERNAME_LOCAL,
-            pass: process.env.PASSWORD_LOCAL,
+            user: username,
+            pass: password,
         },
         tls: {
             rejectUnauthorized: false
         }
-
-
-
-        // host: 'smtp.ethereal.email',
-        // port: 587,
-        // auth: {
-        //     user: 'braeden38@ethereal.email',
-        //     pass: 'eeDKmN1pQBUAeJ93jF'
-        //     },
-        // tls: {
-        //     rejectUnauthorized: false
-        // }
     });
 
     // Configurar correo electronico
@@ -96,8 +97,6 @@ exports.carritoSend = async(req, res) => {
         console.log(error)
         res.redirect("/formulario", {error: "Error al enviar mensaje."})
     }
-
-
 
 }
 

@@ -24,9 +24,9 @@ app.use("/", express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: false}));
 
 
-app.use("/admin", routerAdmin);
+// app.use("/admin", routerAdmin);
 // app.use("/routerAdmin", routerAdmin);
-// app.use("/admin", routerSessions);
+app.use("/admin", routerSessions);
 app.use("/enviar", routerMail);
 app.use("/", router);
 
